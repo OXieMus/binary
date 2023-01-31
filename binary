@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class BinarySearch {
+    static int[] number = {00000, 11111, 22222, 33333, 44444, 55555, 66666, 77777, 88888, 99999};
+    static int target;
+    static int first, last, middle;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Search ID : ");
+        target = sc.nextInt();
+        binarySearch(number, target);
+    }
+
+    private static void binarySearch(int[] number, int target) {
+        first = 0;
+        last = number.length - 1;
+        while (first <= last) {
+            middle = (first + last) / 2;
+            System.out.println("first : " + first + " last : " + last);
+            if (number[middle] == target) {
+                System.out.println("Found at Number[" + middle + "] : " + target);
+                break;
+            } else if (number[middle] < target) {
+                first = middle + 1;
+            } else {
+                last = middle - 1;
+            }
+        }
+        if (first > last) {
+            System.out.println("Not Found!");
+        }
+        }}
